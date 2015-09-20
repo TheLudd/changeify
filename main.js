@@ -6,8 +6,8 @@ var getLog = require('./lib/get-log')
 var fs = require('fs')
 var path = require('path')
 var pluck = require('ramda').pluck
+var program = require('commander')
 var semver = require('semver')
-var publish = false
 
 module.exports = function (baseDir) {
   function getPath (p) {
@@ -20,6 +20,11 @@ module.exports = function (baseDir) {
       return ''
     }
   }
+
+  program
+    .version(require('./package').version)
+    .option('-p, --publish', 'Bump, tag, publish and push new version')
+    .parse(process.argv)
 
   var changeLogPath = getPath('./CHANGELOG.md')
   var version = require(getPath('./package')).version
@@ -40,8 +45,12 @@ module.exports = function (baseDir) {
     fs.writeFileSync(changeLogPath, message + changelog)
     execSync('git add CHANGELOG.md')
     execSync('git commit -m "Update changelog for ' + nextTag + '"')
-    execSync('npm version ' + nextVersionType)
-    execSync('npm publish')
-    execSync('git push --follow-tags')
+
+    if (program.publish) {
+      execSync('npm version ' + nextVersionType)
+      execSync('npm publish')
+      execSync('git push --follow-tags')
+    }
+
   })
 }
