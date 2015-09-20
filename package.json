@@ -1,0 +1,11 @@
+{
+  "name": "changeify",
+  "version": "0.0.1",
+  "description": "Generate a changelog from commit messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Ludwig Magnusson",
+  "license": "ISC"
+}
