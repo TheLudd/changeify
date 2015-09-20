@@ -1,11 +1,20 @@
 {
   "name": "changeify",
+  "bin": {
+    "changeify": "./bin/changeify"
+  },
   "version": "0.0.1",
   "description": "Generate a changelog from commit messages",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "mocha"
   },
   "author": "Ludwig Magnusson",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.3.2",
+    "ramda": "^0.17.1",
+    "semver": "^5.0.3"
+  }
 }
