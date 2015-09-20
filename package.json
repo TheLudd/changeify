@@ -4,7 +4,7 @@
     "changeify": "./bin/changeify"
   },
   "version": "0.0.1",
-  "description": "Generate a changelog from commit messages",
+  "description": "Create a change log for an npm project based on structured commit messages",
   "main": "main.js",
   "scripts": {
     "test": "mocha"
