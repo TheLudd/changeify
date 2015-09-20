@@ -1,3 +1,8 @@
+### 0.1.2
+
+#### Bug fixes / improvemens
+ * Make format smaller
+
 ### 0.1.1
 
 #### Bug fixes / improvemens
