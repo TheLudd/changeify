@@ -3,7 +3,7 @@
   "bin": {
     "changeify": "./bin/changeify"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a change log for an npm project based on structured commit messages",
   "main": "main.js",
   "scripts": {
