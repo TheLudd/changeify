@@ -40,11 +40,8 @@ module.exports = function (baseDir) {
     fs.writeFileSync(changeLogPath, message + changelog)
     execSync('git add CHANGELOG.md')
     execSync('git commit -m "Update changelog for ' + nextTag + '"')
-
-    if (publish) {
-      execSync('npm version ' + nextVersionType)
-      execSync('npm publish')
-      execSync('git push --follow-tags')
-    }
+    execSync('npm version ' + nextVersionType)
+    execSync('npm publish')
+    execSync('git push --follow-tags')
   })
 }
