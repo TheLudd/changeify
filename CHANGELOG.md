@@ -1,26 +1,26 @@
-# 0.1.1
+### 0.1.1
 
-## Bug fixes / improvemens
+#### Bug fixes / improvemens
  * Add new paragraph between versions
 
-# 0.1.0
+### 0.1.0
 
-## Breaking changes
+#### Breaking changes
  * Only publish with `-p --publish` flag
 
-## Additions
+#### Additions
  * Add option -n --dry-run for dry run
 
-## Bug fixes / improvemens
+#### Bug fixes / improvemens
  * Add version type to dry run output
 
-## Documentation
+#### Documentation
  * Add readme
 
-# 0.0.2
+### 0.0.2
 
-## Bug fixes / improvemens
+#### Bug fixes / improvemens
  * Use message from subject
 
-## Documentation
+#### Documentation
  * Update readme description
