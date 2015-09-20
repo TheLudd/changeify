@@ -1,3 +1,8 @@
+# 0.1.1
+
+## Bug fixes / improvemens
+ * Add new paragraph between versions
+
 # 0.1.0
 
 ## Breaking changes
