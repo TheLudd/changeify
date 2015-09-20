@@ -6,13 +6,13 @@ describe('findMarkers', function () {
 
   it('returns a list with an entry for each line with a marker', function () {
     var input = [
-      'Some title',
-      '',
-      '  [foo] c1',
-      '    [bar] c2',
-      '    [foo] c3',
-      '  Some message row'
-    ].join('\n')
+      { body: 'Some text', subject: 'ignore' },
+      { body: '', subject: 'ignore' },
+      { body: '  [foo]', subject: 'c1' },
+      { body: '    [bar]', subject: 'c2' },
+      { body: '    [foo]', subject: 'c3' },
+      { body: '  Some message row', subject: 'foo' }
+    ]
     var result = findMarkers(input)
     result.should.have.length(3)
     result.should.deep.equal([{

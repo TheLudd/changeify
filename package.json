@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "chai": "^3.2.0",
+    "git-log-parser": "^1.1.0",
     "mocha": "^2.3.2",
     "ramda": "^0.17.1",
     "semver": "^5.0.3"
