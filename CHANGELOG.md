@@ -10,7 +10,9 @@
  * Add version type to dry run output
 
 ## Documentation
- * Add readme# 0.0.2
+ * Add readme
+
+# 0.0.2
 
 ## Bug fixes / improvemens
  * Use message from subject
