@@ -44,9 +44,9 @@ module.exports = function (baseDir) {
     var message = createMessage(nextVersion, markers)
 
     if (program.dryRun) {
-      console.log('New version:', nextVersion)
-      console.log('Tag:', nextTag)
-      console.log('Prepend to change log:')
+      console.log('New version:', nextVersion + ' (' + nextVersionType + ')')
+      console.log('New tag:', nextTag)
+      console.log('Generated changelog:')
       console.log(message)
     } else {
       var changelog = getChangeLog()
