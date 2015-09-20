@@ -24,6 +24,7 @@ module.exports = function (baseDir) {
   program
     .version(require('./package').version)
     .option('-p, --publish', 'Bump, tag, publish and push new version')
+    .option('-n, --dry-run', 'Only print changelog and new version')
     .parse(process.argv)
 
   var changeLogPath = getPath('./CHANGELOG.md')
@@ -41,15 +42,23 @@ module.exports = function (baseDir) {
     var nextVersion = semver.inc(version, nextVersionType)
     var nextTag = 'v' + nextVersion
     var message = createMessage(nextVersion, markers)
-    var changelog = getChangeLog()
-    fs.writeFileSync(changeLogPath, message + changelog)
-    execSync('git add CHANGELOG.md')
-    execSync('git commit -m "Update changelog for ' + nextTag + '"')
 
-    if (program.publish) {
-      execSync('npm version ' + nextVersionType)
-      execSync('npm publish')
-      execSync('git push --follow-tags')
+    if (program.dryRun) {
+      console.log('New version:', nextVersion)
+      console.log('Tag:', nextTag)
+      console.log('Prepend to change log:')
+      console.log(message)
+    } else {
+      var changelog = getChangeLog()
+      fs.writeFileSync(changeLogPath, message + changelog)
+      execSync('git add CHANGELOG.md')
+      execSync('git commit -m "Update changelog for ' + nextTag + '"')
+
+      if (program.publish) {
+        execSync('npm version ' + nextVersionType)
+        execSync('npm publish')
+        execSync('git push --follow-tags')
+      }
     }
 
   })
