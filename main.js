@@ -41,16 +41,17 @@ module.exports = function (baseDir) {
     var nextVersionType = determineNext(version, pluck('marker', markers))
     var nextVersion = semver.inc(version, nextVersionType)
     var nextTag = 'v' + nextVersion
+    var changelog = getChangeLog()
     var message = createMessage(nextVersion, markers)
+    var out = message + '\n\n' + changelog
 
     if (program.dryRun) {
       console.log('New version:', nextVersion + ' (' + nextVersionType + ')')
       console.log('New tag:', nextTag)
       console.log('Generated changelog:')
-      console.log(message)
+      console.log(out)
     } else {
-      var changelog = getChangeLog()
-      fs.writeFileSync(changeLogPath, message + changelog)
+      fs.writeFileSync(changeLogPath, out)
       execSync('git add CHANGELOG.md')
       execSync('git commit -m "Update changelog for ' + nextTag + '"')
 
