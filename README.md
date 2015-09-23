@@ -27,7 +27,7 @@ of this project for an example.
 All commits without any tags will be ignored when generating the change log and determening the new version.
 
 ## Usage
-Either the module globally and use it in any project or locally and add it as an npm script.
+Either install the module globally and use it in any project or install it locally and add it as an npm script.
 
 Run `changeify -n` for a dry run which will print the changelog and the next version to the console.
 
